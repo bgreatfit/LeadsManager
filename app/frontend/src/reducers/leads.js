@@ -4,11 +4,16 @@ const initialState = {
     leads:[]
 };
 export default function (state = initialState, action) {
-    console.log(state,'state');
     switch(action.type){
         case GET_LEADS:
+            console.log(state, 'state');
+            console.log(action.payload, 'payload');
+            console.log({
+                ...state,
+                leads: action.payload
+            }, 'final');
 
-            console.log(action.payload,'NEEEEEEEEE');
+
             return {
                 ...state,
                 leads: action.payload

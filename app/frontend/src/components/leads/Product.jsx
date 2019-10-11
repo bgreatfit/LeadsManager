@@ -33,8 +33,6 @@ class ProductTable extends Component{
         let lastCategory = null;
         this.props.products.forEach((product)=>{
             if (product.category !== lastCategory) {
-                 console.log(inStockOnly, 'here1');
-                 console.log(product.stocked, 'here2');
                 if(inStockOnly && !product.stocked){
                     return "";
                 }
@@ -49,7 +47,8 @@ class ProductTable extends Component{
                     />
                 )
             }
-            console.log(product);
+
+
             rows.push(
                 <ProductRow
                  product={product}
@@ -80,7 +79,6 @@ class SearchBar extends React.Component {
     }
 
     handleFilterTextChange(e){
-        console.log(e.target.value);
         this.props.onFilterTextChange(e.target.value)
     }
     handleInStockChange(e){

@@ -16,5 +16,5 @@ echo "Starting server"
 #
 #python manage.py flush --no-input
 #python manage.py collectstatic --no-input
-gunicorn --timeout=30 --workers=2 --bind 0.0.0.0:8001 cowrywise.wsgi:application --reload
+gunicorn --timeout=30 --workers=2 --bind 0.0.0.0:8000 leadmanager.wsgi:application --reload
 exec "$@"

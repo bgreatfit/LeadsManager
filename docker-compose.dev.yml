@@ -31,7 +31,7 @@ services:
         - ./app:/app
         - static_volume:/app/staticfiles
       ports:
-        - 8001:8001
+        - 8000:8000
       depends_on:
         - mysql
         - redis
@@ -51,7 +51,7 @@ services:
       image: phpmyadmin/phpmyadmin
       container_name: ${PROJECT_NAME}-phpmyadmin
       environment:
-          - PMA_HOST=leadsmanager-mysql
+          - PMA_HOST=leadmanager-mysql
           -  COMPOSE_HTTP_TIMEOUT=180
       restart: always
       ports:

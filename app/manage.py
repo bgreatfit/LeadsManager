@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    settings = "cowrywise.settings" if 'RDS_DB_NAME' in os.environ else 'cowrywise.settings_dev'
+    settings = "leadmanager.settings" if 'RDS_DB_NAME' in os.environ else 'leadmanager.settings_dev'
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
     try:
         from django.core.management import execute_from_command_line

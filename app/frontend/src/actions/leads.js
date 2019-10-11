@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_LEADS,DELETE_LEAD, ADD_LEAD} from '../actions/types.js';
+import {GET_LEADS,DELETE_LEAD, ADD_LEAD, GET_ERRORS} from '../actions/types.js';
 
 //GET LEADS
 export const getLeads = ()=>dispatch=>{
@@ -34,5 +34,17 @@ export const addLead = (data)=>dispatch=>{
                  payload:res.data
             })
         })
-        .catch(err=>console.log(err,'Here'));
+        .catch(err=>{
+            const errors = {
+                msg:err.response.data,
+                status:err.response.status
+            };
+             console.log(errors);
+            dispatch({
+                type:GET_ERRORS,
+                 payload: errors
+            });
+
+
+        });
 };

@@ -6,12 +6,14 @@ import Dashboard from "./leads/Dashboard.jsx";
 import {FilterableProductTable} from "./leads/Product.jsx";
 import {Provider} from 'react-redux';
 import store from '../store';
+import Alert from "./layouts/Alert.jsx";
 class App extends Component {
   render(){
       return(
           <Provider store={store}>
               <Fragment>
                    <Header/>
+                   <Alert/>
                    <Clock/>
                     <div className="container">
                          <Dashboard/>

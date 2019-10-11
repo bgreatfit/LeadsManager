@@ -32,7 +32,7 @@ RUN npm install
 
 # copy entrypoint.sh
 
-EXPOSE 8001
+EXPOSE 8000
 # copy project
 COPY /app/ /app/
 # run entrypoint.sh
