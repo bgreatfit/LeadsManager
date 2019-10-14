@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from celery.schedules import crontab
+# from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
-from sentry_sdk.integrations.celery import CeleryIntegration
-from sentry_sdk.integrations.redis import RedisIntegration
+# import sentry_sdk
+# from sentry_sdk.integrations.django import DjangoIntegration
+# from sentry_sdk.integrations.celery import CeleryIntegration
+# from sentry_sdk.integrations.redis import RedisIntegration
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_celery_beat',
     'leads',
-    'frontend'# enable the frontend app
+    'frontend',# enable the frontend app
+    'rest_framework.authtoken',
 
 ]
 # AUTH_USER_MODEL = 'esusu.User'
@@ -140,38 +141,45 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 # restframework
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
-}
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
 }
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ],
+#     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+# }
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+#
+# }
 
-CELERY_BROKER_URL = 'redis://redis:6379'
-CELERY_RESULT_BACKEND = 'redis://redis:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = "Africa/Lagos"
-BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-CELERY_BEAT_SCHEDULE = {
-    'hello': {
-        'task': 'leads.tasks.hello',
-        'schedule': 10,  # execute every minute
-        #'schedule': crontab()  # execute every minute
-    },
-    # 'task-number-two': {
-    #     'task': 'app2.tasks.task_number_two',
-    #     'schedule': crontab(minute=0, hour='*/3,10-19'),
-    #     'args': (*args)
-    # }
-}
+# CELERY_BROKER_URL = 'redis://redis:6379'
+# CELERY_RESULT_BACKEND = 'redis://redis:6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = "Africa/Lagos"
+# BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+# CELERY_BEAT_SCHEDULE = {
+#     'hello': {
+#         'task': 'leads.tasks.hello',
+#         'schedule': 10,  # execute every minute
+#         #'schedule': crontab()  # execute every minute
+#     },
+#     # 'task-number-two': {
+#     #     'task': 'app2.tasks.task_number_two',
+#     #     'schedule': crontab(minute=0, hour='*/3,10-19'),
+#     #     'args': (*args)
+#     # }
+# }
 
 
 # sentry_sdk.init(
