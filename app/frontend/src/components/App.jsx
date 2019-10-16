@@ -7,19 +7,24 @@ import {FilterableProductTable} from "./leads/Product.jsx";
 import {Provider} from 'react-redux';
 import store from '../store';
 import Alert from "./layouts/Alert.jsx";
+import {HashRouter as Router, Route,Switch} from 'react-router-dom';
 class App extends Component {
   render(){
       return(
           <Provider store={store}>
-              <Fragment>
-                   <Header/>
-                   <Alert/>
-                   <Clock/>
-                    <div className="container">
-                         <Dashboard/>
-                    </div>
-                  <FilterableProductTable products={this.props.products}/>
-              </Fragment>
+              <Router>
+                  <Fragment>
+                       <Header/>
+                       <Alert/>
+                       <Clock/>
+                        <div className="container">
+                            <Switch>
+                                <Route path="/dashboard" component={Dashboard}/>
+                            </Switch>
+                        </div>
+                      <FilterableProductTable products={this.props.products}/>
+                  </Fragment>
+              </Router>
           </Provider>
 
 

@@ -3,7 +3,8 @@ import Leads from './Leads.jsx'
 import Form from './Form.jsx'
 
 
-export default function  Dashboard(){
+export default function  Dashboard(props){
+    console.log(props,'Propa');
     return (
         <Fragment>
             <Form />
