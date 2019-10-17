@@ -6,14 +6,6 @@ const initialState = {
 export default function (state = initialState, action) {
     switch(action.type){
         case GET_LEADS:
-            console.log(state, 'state');
-            console.log(action.payload, 'payload');
-            console.log({
-                ...state,
-                leads: action.payload
-            }, 'final');
-
-
             return {
                 ...state,
                 leads: action.payload
