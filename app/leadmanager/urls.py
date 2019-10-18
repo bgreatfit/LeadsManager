@@ -29,6 +29,9 @@ urlpatterns += [
 urlpatterns += [
     path('api/leads/', include('leads.urls')),
 ]
+urlpatterns += [
+    path('', include('accounts.urls')),
+]
 
 
 

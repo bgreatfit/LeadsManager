@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'leads',
     'frontend',# enable the frontend app
     'rest_framework.authtoken',
+    'knox',
 
 ]
 # AUTH_USER_MODEL = 'esusu.User'
@@ -141,9 +142,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 # restframework
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 
 }
