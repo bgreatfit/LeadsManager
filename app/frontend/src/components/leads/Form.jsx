@@ -37,14 +37,44 @@ export class Form extends Component {
     render() {
         const{name,email,message} = this.state;
         return (
-            <div>
-                <h1>Add  Leads</h1>
-                <form className="form-group-sm form-control" onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" onChange={this.handleInputChange} value={name}/>
-                    <input type="email" name="email" onChange={this.handleInputChange} value={email}/>
-                    <input type="text" name="message" onChange={this.handleInputChange} value={message}/>
-                    <button> SUBMIT</button>
-                </form>
+            <div className="col-md-6 m-auto">
+                <div className="card card-body mt-5">
+                  <h2 className="text-left">Add Lead</h2>
+                  <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="name"
+                        onChange={this.handleInputChange}
+                        value={name}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label>Email</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        name="email"
+                        onChange={this.handleInputChange}
+                        value={email}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label>Message</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="message"
+                        onChange={this.handleInputChange}
+                        value={message}
+                      />
+                    </div>
+                  </form>
+                </div>
             </div>
         );
     }

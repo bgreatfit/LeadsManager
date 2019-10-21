@@ -7,7 +7,10 @@ import {FilterableProductTable} from "./leads/Product.jsx";
 import {Provider} from 'react-redux';
 import store from '../store';
 import Alert from "./layouts/Alert.jsx";
+import {Login} from "./accounts/Login";
+import Register from "./accounts/Register";
 import {HashRouter as Router, Route,Switch} from 'react-router-dom';
+import PrivateRoute from './common/PrivateRoute';
 class App extends Component {
   render(){
       return(
@@ -19,7 +22,9 @@ class App extends Component {
                        <Clock/>
                         <div className="container">
                             <Switch>
-                                <Route path="/dashboard" component={Dashboard}/>
+                                <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+                                <Route exact path="/login" component={Login}/>
+                                <Route exact path="/register" component={Register}/>
                             </Switch>
                         </div>
                       <FilterableProductTable products={this.props.products}/>

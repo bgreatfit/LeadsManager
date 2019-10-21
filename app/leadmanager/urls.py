@@ -30,7 +30,7 @@ urlpatterns += [
     path('api/leads/', include('leads.urls')),
 ]
 urlpatterns += [
-    path('', include('accounts.urls')),
+    path('api/auth/', include('accounts.urls')),
 ]
 
 

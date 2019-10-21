@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'leads',
     'frontend'# enable the frontend app
+    'knox'
 
 ]
 # AUTH_USER_MODEL = 'esusu.User'

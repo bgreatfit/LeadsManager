@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'leads',
     'frontend',# enable the frontend app
-    'rest_framework.authtoken',
     'knox',
+    'webpack_loader',
 
 ]
 # AUTH_USER_MODEL = 'esusu.User'
@@ -134,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = '/staticfiles/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
@@ -185,3 +185,9 @@ REST_FRAMEWORK = {
 #     dsn="https://a8cc25000f654f7d96f63b5d16eacb19@sentry.io/1578830",
 #     integrations=[DjangoIntegration(), CeleryIntegration(), RedisIntegration()]
 # )
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'frontend/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}

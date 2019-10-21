@@ -4,10 +4,10 @@ from .api import RegisterAPI, LoginAPI, UserAPI
 
 urlpatterns = [
   #...snip...
-  url(r'api/auth/', include('knox.urls')),
-  url(r'api/auth/register', RegisterAPI.as_view()),
-  url(r'api/auth/login', LoginAPI.as_view()),
-  url(r'api/auth/user', UserAPI.as_view()),
-  url(r'api/auth/logout', knox_views.LogoutViews.as_view(), name='knox_logout'),
+  url(r'', include('knox.urls')),
+  url(r'register', RegisterAPI.as_view()),
+  url(r'login', LoginAPI.as_view()),
+  url(r'user', UserAPI.as_view()),
+  url(r'logout', knox_views.LogoutView.as_view(), name='knox_logout'),
   #...snip...
 ]

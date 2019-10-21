@@ -27,6 +27,7 @@ export class Leads extends Component {
         return (
             <>
                 <div>
+                    <h1>{this.props.name}</h1>
                     <table className="table table-striped">
                         <thead>
                         <tr>
