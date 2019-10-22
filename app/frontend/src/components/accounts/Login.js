@@ -18,15 +18,16 @@ class Login extends Component {
 
 
   onSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
+    this.props.login(this.state)
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    // if (this.props.isAuthenticated) {
-    //   return <Redirect to="/" />;
-    // }
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     const { username, password } = this.state;
     return (
       <div className="col-md-6 m-auto">
