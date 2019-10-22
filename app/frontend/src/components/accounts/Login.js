@@ -2,15 +2,19 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import {login} from '../../actions/auth'
+class Login extends Component {
 
-export class Login extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    username: "",
-    password: ""
-  };
-  }
+    state = {
+      username: "",
+      password: ""
+    };
+
+    static  PropTypes = {
+      login: PropTypes.func.isRequired,
+      isAuthenticated: PropTypes.bool
+    };
+
 
 
   onSubmit = e => {
@@ -65,4 +69,11 @@ export class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state =>({
+  isAuthenticated : state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {login})(Login);
+
 

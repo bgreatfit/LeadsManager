@@ -11,8 +11,13 @@ import {Login} from "./accounts/Login";
 import Register from "./accounts/Register";
 import {HashRouter as Router, Route,Switch} from 'react-router-dom';
 import PrivateRoute from './common/PrivateRoute';
+import {loadUser} from "../actions/auth";
 class App extends Component {
-  render(){
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
+    render(){
       return(
           <Provider store={store}>
               <Router>
