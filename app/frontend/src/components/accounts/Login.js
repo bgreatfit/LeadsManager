@@ -10,7 +10,7 @@ class Login extends Component {
       password: ""
     };
 
-    static  PropTypes = {
+    static  propTypes = {
       login: PropTypes.func.isRequired,
       isAuthenticated: PropTypes.bool
     };
@@ -18,8 +18,8 @@ class Login extends Component {
 
 
   onSubmit = e => {
-    e.preventDefault()
-    this.props.login(this.state)
+    e.preventDefault();
+    this.props.login(this.state);
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });

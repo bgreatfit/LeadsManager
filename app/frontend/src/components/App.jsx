@@ -7,7 +7,7 @@ import {FilterableProductTable} from "./leads/Product.jsx";
 import {Provider} from 'react-redux';
 import store from '../store';
 import Alert from "./layouts/Alert.jsx";
-import {Login} from "./accounts/Login";
+import Login from "./accounts/Login";
 import Register from "./accounts/Register";
 import {HashRouter as Router, Route,Switch} from 'react-router-dom';
 import PrivateRoute from './common/PrivateRoute';
