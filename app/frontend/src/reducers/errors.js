@@ -6,13 +6,19 @@ const initialState = {
 };
 
 export default function (state=initialState, action) {
-    if (action.type === 'GET_ERRORS') {
-        return{
+                console.log(action, 'enter');
+
+    switch(action.type){
+        case GET_ERRORS:
+            console.log('Reducedr');
+            return{
             msg: action.payload.msg,
             status: action.payload.status,
-        };
-    } else {
-        return  state;
+        }
+        default:
+            {
+                return  state;
+             }
     }
 
 }

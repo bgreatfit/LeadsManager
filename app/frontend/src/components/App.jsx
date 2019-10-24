@@ -14,6 +14,7 @@ import PrivateRoute from './common/PrivateRoute';
 import {loadUser} from "../actions/auth";
 class App extends Component {
     componentDidMount() {
+        console.log('did mount');
         store.dispatch(loadUser());
     }
 

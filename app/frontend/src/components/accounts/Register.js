@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import  {connect} from  'react-redux'
+import  {register} from '../../actions/auth'
 
 class Register extends Component {
      state = {
@@ -9,19 +11,25 @@ class Register extends Component {
         password: "",
         password2: "",
     };
-    handleOnSubmit = ()=>{
-        console.log('here')
-    };
-    handleInputChange = (e)=>{
-        this.setState({[e.target.name]: e.target.value});
-        console.log('here')
-    };
+       static  propTypes = {
+          register: PropTypes.func.isRequired,
+        };
+
+
+
+      handleOnSubmit = e => {
+        e.preventDefault();
+        this.props.register(this.state);
+      };
+
+      handleInputChange = e => this.setState({ [e.target.name]: e.target.value });
+
     render() {
         const {username, email,password, password2} = this.state;
         return (
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
-                  <h2 className="text-center">Login</h2>
+                  <h2 className="text-center">Register</h2>
                   <form onSubmit={this.handleOnSubmit}>
                     <div className="form-group">
                       <label>Username</label>
@@ -84,5 +92,4 @@ class Register extends Component {
 //
 // };
 
-export default Register;
-// export default (mapStateToProps)(Register);
+export default connect(null, {register})(Register);

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';;
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
@@ -11,20 +11,20 @@ export class Header extends Component {
         };
     render(){
         const {isAuthenticated, user} = this.props.auth;
-        const authLink = (
+        const authLinks = (
              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <link className="nav-link" to="/">Home <span className="sr-only">(current)</span></link>
+                            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
-                        <button className="nav-item btn btn-info btn-sm" >
+                        <button className="nav-item btn btn-info btn-sm" onClick={this.props.logout} >
                             LOGOUT
                         </button>
                     </ul>
         );
-        const guestLink = (
+        const guestLinks = (
              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link" to="#">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/register">Register</Link>
@@ -43,7 +43,7 @@ export class Header extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a className="navbar-brand" href="#">Leads Manager</a>
-                   (isAuthenticated)? authLink:guestLink;
+                    {isAuthenticated? authLinks:guestLinks}
                 </div>
             </nav>
         )
