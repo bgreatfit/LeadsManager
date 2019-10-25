@@ -12,6 +12,7 @@ import Register from "./accounts/Register";
 import {HashRouter as Router, Route,Switch} from 'react-router-dom';
 import PrivateRoute from './common/PrivateRoute';
 import {loadUser} from "../actions/auth";
+import Leads from "./leads/Leads.jsx";
 class App extends Component {
     componentDidMount() {
         console.log('did mount');
@@ -31,6 +32,7 @@ class App extends Component {
                                 <PrivateRoute exact path="/dashboard" component={Dashboard}/>
                                 <Route exact path="/login" component={Login}/>
                                 <Route exact path="/register" component={Register}/>
+                                <PrivateRoute exact path="/leads" component={Dashboard}/>
                             </Switch>
                         </div>
                       <FilterableProductTable products={this.props.products}/>

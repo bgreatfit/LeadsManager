@@ -40,7 +40,7 @@ export class Form extends Component {
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                   <h2 className="text-left">Add Lead</h2>
-                  <form onSubmit={this.onSubmit}>
+                  <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <label>Name</label>
                       <input
@@ -73,6 +73,7 @@ export class Form extends Component {
                         value={message}
                       />
                     </div>
+                      <button className="btn btn-primary">Add Lead</button>
                   </form>
                 </div>
             </div>

@@ -58,19 +58,9 @@ export const login = (data) => (dispatch)=>{
 };
 // LOGOUT USER
 export const logout = () => (dispatch, getState)=>{
-// get token from state
-   const token = getState().auth.token;
-    //Headers
-    const config = {
-        headers:{
-            'Content-Type': 'application/json'
-        }
-    };
 
-    // if token, set authorization with token
-    config.headers['Authorization'] = `Token ${token}`;
     //load User
-    axios.post('api/auth/logout',null, config)
+    axios.post('api/auth/logout',null, tokenConfig(getState))
         .then(res=>{
             dispatch({
                 type: LOGOUT_SUCCESS,
@@ -102,4 +92,19 @@ export const register = (data) => (dispatch)=>{
         })
 
 
+};
+
+export const tokenConfig = getState=>{
+    // get token from state
+   const token = getState().auth.token;
+    //Headers
+    const config = {
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    };
+
+    // if token, set authorization with token
+    config.headers['Authorization'] = `Token ${token}`;
+    return config
 };

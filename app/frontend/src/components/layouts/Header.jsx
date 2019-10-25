@@ -16,6 +16,13 @@ export class Header extends Component {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/leads">Leads </Link>
+                        </li>
+
+                        <h4 className="nav-item">
+                            {user? `Welcome ${user.username}`: ''}
+                        </h4>
                         <button className="nav-item btn btn-info btn-sm" onClick={this.props.logout} >
                             LOGOUT
                         </button>

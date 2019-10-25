@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {PropTypes} from "prop-types";
+import PropTypes from "prop-types";
 import {getLeads, deleteLead} from "../../actions/leads";
 
-export class Leads extends Component {
+class Leads extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ export class Leads extends Component {
         return (
             <>
                 <div>
-                    <h1>{this.props.name}</h1>
+                    <h1>Leads</h1>
                     <table className="table table-striped">
                         <thead>
                         <tr>
@@ -61,11 +61,7 @@ export class Leads extends Component {
                         </tr>
                         </tbody>
                     </table>
-                    <h1>{this.state.color}</h1>
-                    <h1>{this.props.name}</h1>
-                    <button type="button" onClick={this.ChangeColor} >
-                         Color
-                    </button>
+
                 </div>
             </>
         );

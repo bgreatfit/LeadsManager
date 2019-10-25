@@ -1,5 +1,6 @@
 import {USER_LOADING, USER_LOADED, AUTH_ERROR,
-    LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS} from '../actions/types'
+    LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS,
+REGISTER_SUCCESS, REGISTER_FAIL} from '../actions/types'
 
 const initialState = {
     token: localStorage.getItem("token"),
